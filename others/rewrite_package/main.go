@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -34,13 +33,13 @@ func main() {
 			}
 			reg := regexp.MustCompile(`^` + dir.Name())
 			if reg.MatchString(subDir.Name()) {
-				f, err := os.ReadFile(filepath.Join(dir.Name(), subDir.Name()))
+				targetFile := filepath.Join(dir.Name(), subDir.Name())
+				f, err := os.ReadFile(targetFile)
 				if err != nil {
 					panic(err)
 				}
-				newString := strings.ReplaceAll(string(f), "package main", "package leetcode")
-				fmt.Println(string(f))
-				fmt.Println(newString)
+				newContent := []byte(strings.ReplaceAll(string(f), "package main", "package leetcode"))
+				os.WriteFile(targetFile, newContent, 0644)
 			}
 		}
 	}
