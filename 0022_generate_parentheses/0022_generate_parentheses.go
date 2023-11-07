@@ -1,7 +1,5 @@
 package leetcode
 
-import "fmt"
-
 func rec(n int, openCount int, closeCount int, current string, result *[]string) {
 	if openCount == n && closeCount == n {
 		*result = append(*result, current)
@@ -19,9 +17,4 @@ func generateParenthesis(n int) []string {
 	result := []string{}
 	rec(n, 0, 0, "", &result)
 	return result
-}
-
-func main() {
-	fmt.Println(generateParenthesis(3)) // ["((()))","(()())","(())()","()(())","()()()"]
-	fmt.Println(generateParenthesis(500))
 }
