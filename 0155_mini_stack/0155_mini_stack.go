@@ -1,7 +1,5 @@
 package leetcode
 
-import "fmt"
-
 type MinStack struct {
 	stack    []int
 	minStack []int
@@ -11,44 +9,24 @@ func Constructor() MinStack {
 	return MinStack{}
 }
 
-func (this *MinStack) Push(val int) {
-	if len(this.stack) == 0 || val <= this.GetMin() {
-		this.minStack = append(this.minStack, val)
+func (s *MinStack) Push(val int) {
+	if len(s.stack) == 0 || val <= s.GetMin() {
+		s.minStack = append(s.minStack, val)
 	}
-	this.stack = append(this.stack, val)
+	s.stack = append(s.stack, val)
 }
 
-func (this *MinStack) Pop() {
-	if this.stack[len(this.stack)-1] == this.GetMin() {
-		this.minStack = this.minStack[:len(this.minStack)-1]
+func (s *MinStack) Pop() {
+	if s.stack[len(s.stack)-1] == s.GetMin() {
+		s.minStack = s.minStack[:len(s.minStack)-1]
 	}
-	this.stack = this.stack[:len(this.stack)-1]
+	s.stack = s.stack[:len(s.stack)-1]
 }
 
-func (this *MinStack) Top() int {
-	return this.stack[len(this.stack)-1]
+func (s *MinStack) Top() int {
+	return s.stack[len(s.stack)-1]
 }
 
-func (this *MinStack) GetMin() int {
-	return this.minStack[len(this.minStack)-1]
-}
-
-/**
- * Your MinStack object will be instantiated and called as such:
- * obj := Constructor();
- * obj.Push(val);
- * obj.Pop();
- * param_3 := obj.Top();
- * param_4 := obj.GetMin();
- */
-
-func main() {
-	obj := Constructor()
-	obj.Push(-2)
-	obj.Push(0)
-	obj.Push(-3)
-	fmt.Println(obj.GetMin()) // -3
-	obj.Pop()
-	fmt.Println(obj.Top())    // 0
-	fmt.Println(obj.GetMin()) // 2
+func (s *MinStack) GetMin() int {
+	return s.minStack[len(s.minStack)-1]
 }

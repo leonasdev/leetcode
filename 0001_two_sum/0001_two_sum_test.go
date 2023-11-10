@@ -41,7 +41,7 @@ func TestTwoSum(t *testing.T) {
 }
 
 func TestTwoSumWithTestify(t *testing.T) {
-	assert.ElementsMatch(t, []int{1, 0}, twoSum([]int{2, 7, 11, 15}, 9))
-	assert.ElementsMatch(t, []int{1, 2}, twoSum([]int{3, 2, 4}, 6))
-	assert.ElementsMatch(t, []int{1, 0}, twoSum([]int{3, 3}, 6))
+	assert.ElementsMatch(t, twoSum([]int{2, 7, 11, 15}, 9), []int{1, 0})
+	assert.ElementsMatch(t, twoSum([]int{3, 2, 4}, 6), []int{1, 2})
+	assert.ElementsMatch(t, twoSum([]int{3, 3}, 6), []int{1, 0})
 }

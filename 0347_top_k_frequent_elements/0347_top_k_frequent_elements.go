@@ -1,9 +1,5 @@
 package leetcode
 
-import (
-	"fmt"
-)
-
 func topKFrequent(nums []int, k int) []int {
 	numToFre := map[int]int{}
 	for _, n := range nums {
@@ -21,12 +17,4 @@ func topKFrequent(nums []int, k int) []int {
 	}
 
 	return result
-}
-
-func main() {
-	nums := []int{1, 1, 2, 2, 1, 3}
-	fmt.Println(topKFrequent(nums, 2)) // [1, 2]
-
-	nums = []int{1}
-	fmt.Println(topKFrequent(nums, 1)) // [1]
 }

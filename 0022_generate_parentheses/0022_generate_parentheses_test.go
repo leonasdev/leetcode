@@ -7,5 +7,5 @@ import (
 )
 
 func TestGenerateParentesis(t *testing.T) {
-	assert.Equal(t, generateParenthesis(3), []string{"((()))", "(()())", "(())()", "()(())", "()()()"})
+	assert.Equal(t, []string{"((()))", "(()())", "(())()", "()(())", "()()()"}, generateParenthesis(3))
 }

@@ -1,7 +1,5 @@
 package leetcode
 
-import "fmt"
-
 func groupAnagrams(strs []string) [][]string {
 	arrToAnagrams := map[[26]int][]string{}
 
@@ -18,12 +16,4 @@ func groupAnagrams(strs []string) [][]string {
 		result = append(result, strs)
 	}
 	return result
-}
-
-func main() {
-	strs := []string{"eat", "tea", "tan", "ate", "nat", "bat"}
-	fmt.Println(groupAnagrams(strs)) // [["bat"],["nat","tan"],["ate","eat","tea"]]
-
-	strs = []string{}
-	fmt.Println(groupAnagrams(strs)) // []
 }

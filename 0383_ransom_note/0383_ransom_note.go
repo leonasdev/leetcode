@@ -1,7 +1,5 @@
 package leetcode
 
-import "fmt"
-
 func canConstruct(ransomNote string, magazine string) bool {
 	letterToCount := map[rune]int{}
 	for _, c := range magazine {
@@ -14,10 +12,4 @@ func canConstruct(ransomNote string, magazine string) bool {
 		}
 	}
 	return true
-}
-
-func main() {
-	fmt.Println(canConstruct("a", "b"))    // false
-	fmt.Println(canConstruct("aa", "ab"))  // false
-	fmt.Println(canConstruct("aa", "aab")) // true
 }

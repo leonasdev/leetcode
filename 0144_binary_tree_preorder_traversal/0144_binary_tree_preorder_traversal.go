@@ -1,7 +1,5 @@
 package leetcode
 
-import "fmt"
-
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
@@ -21,22 +19,4 @@ func preorderTraversal(root *TreeNode) []int {
 	res := []int{}
 	traverse(root, &res)
 	return res
-}
-
-func main() {
-	root := &TreeNode{
-		Val: 1,
-		Right: &TreeNode{
-			Val: 2,
-			Left: &TreeNode{
-				Val: 3,
-			},
-		},
-	}
-	fmt.Println(preorderTraversal(root)) // [1,2,3]
-	root = &TreeNode{
-		Val: 1,
-	}
-	fmt.Println(preorderTraversal(root)) // [1]
-	fmt.Println(preorderTraversal(nil))  // []
 }

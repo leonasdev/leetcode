@@ -1,7 +1,5 @@
 package leetcode
 
-import "fmt"
-
 func isHappy(n int) bool {
 	record := map[int]bool{}
 	for n > 1 {
@@ -19,9 +17,4 @@ func isHappy(n int) bool {
 		n = sum
 	}
 	return true
-}
-
-func main() {
-	fmt.Println(isHappy(19))
-	fmt.Println(isHappy(2))
 }

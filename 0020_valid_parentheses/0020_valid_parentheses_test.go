@@ -47,10 +47,10 @@ func TestIsValid(t *testing.T) {
 }
 
 func TestIsValidWithTestify(t *testing.T) {
-	assert.Equal(t, isValid("()"), true)
-	assert.Equal(t, isValid("()[]{}"), true)
-	assert.Equal(t, isValid("(]"), false)
-	assert.Equal(t, isValid("[{()}]"), true)
-	assert.Equal(t, isValid("[{(})]"), false)
-	assert.Equal(t, isValid("["), false)
+	assert.Equal(t, true, isValid("()"))
+	assert.Equal(t, true, isValid("()[]{}"))
+	assert.Equal(t, false, isValid("(]"))
+	assert.Equal(t, true, isValid("[{()}]"))
+	assert.Equal(t, false, isValid("[{(})]"))
+	assert.Equal(t, false, isValid("["))
 }

@@ -1,7 +1,6 @@
 package leetcode
 
 import (
-	"fmt"
 	"strings"
 	"unicode"
 )
@@ -21,10 +20,4 @@ func isPalindrome(s string) bool {
 		}
 	}
 	return true
-}
-
-func main() {
-	fmt.Println(isPalindrome("A man, a plan, a canal: Panama")) // true
-	fmt.Println(isPalindrome("flllfds"))                        // false
-	fmt.Println(isPalindrome("ab_a"))                           // true
 }

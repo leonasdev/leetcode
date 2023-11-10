@@ -47,5 +47,5 @@ func TestMergeTwoLists(t *testing.T) {
 	list2.Append(4)
 	res := NewLinkedList()
 	res.Head = mergeTwoLists(list1.Head, list2.Head)
-	assert.Equal(t, res.toString(), "112344")
+	assert.Equal(t, "112344", res.toString())
 }

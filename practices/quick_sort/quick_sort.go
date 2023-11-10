@@ -1,10 +1,4 @@
-package main
-
-import (
-	"fmt"
-	"math/rand"
-	"sort"
-)
+package leetcode
 
 func partition(arr []int, lo int, hi int) int {
 	pivot := arr[hi]
@@ -30,24 +24,4 @@ func qs(arr []int, lo int, hi int) {
 
 func quickSort(arr []int) {
 	qs(arr, 0, len(arr)-1)
-}
-
-func main() {
-	for k := 0; k < 10; k++ {
-		s := []int{}
-		s2 := make([]int, 100)
-		for i := 0; i < 100; i++ {
-			s = append(s, rand.Intn(100))
-		}
-		copy(s2, s)
-		sort.Ints(s)
-		quickSort(s2)
-		for j := 0; j < len(s); j++ {
-			if s[j] != s2[j] {
-				fmt.Println("wrong!!")
-				return
-			}
-		}
-		fmt.Println("ok")
-	}
 }
