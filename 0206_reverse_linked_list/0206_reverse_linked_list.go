@@ -1,21 +1,17 @@
 package leetcode
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import structrue "github.com/leonasdev/leetcode/structure"
+
+type ListNode = structrue.ListNode
 
 func reverseList(head *ListNode) *ListNode {
-	if head == nil {
-		return nil
-	}
-	curr := head
+	cur := head
 	var pre *ListNode
-	for curr != nil {
-		tmp := curr.Next
-		curr.Next = pre
-		pre = curr
-		curr = tmp
+	for cur != nil {
+		tmp := cur.Next
+		cur.Next = pre
+		pre = cur
+		cur = tmp
 	}
 	return pre
 }

@@ -3,33 +3,26 @@ package leetcode
 import (
 	"testing"
 
+	structrue "github.com/leonasdev/leetcode/structure"
 	"github.com/stretchr/testify/assert"
 )
 
-func newListNode(val int) *ListNode {
-	return &ListNode{
-		Val:  val,
-		Next: nil,
-	}
-}
-
 func TestReverseList(t *testing.T) {
-	root := &ListNode{
-		Val: 1,
-	}
-	curr := root
-	for i := 2; i <= 5; i++ {
-		curr.Next = newListNode(i)
-		curr = curr.Next
-	}
+	t.Run("NormalCase", func(t *testing.T) {
+		nums := []int{1, 2, 3, 4, 5}
+		list := structrue.IntsToList(nums)
 
-	root = reverseList(root)
+		list = reverseList(list)
 
-	want := []int{5, 4, 3, 2, 1}
+		assert.Equal(t, []int{5, 4, 3, 2, 1}, structrue.ListToInts(list))
+	})
 
-	curr = root
-	for _, w := range want {
-		assert.Equal(t, w, curr.Val)
-		curr = curr.Next
-	}
+	t.Run("Empty", func(t *testing.T) {
+		nums := []int{}
+		list := structrue.IntsToList(nums)
+
+		list = reverseList(list)
+
+		assert.Equal(t, []int{}, structrue.ListToInts(list))
+	})
 }
