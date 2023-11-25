@@ -1,8 +1,10 @@
 package leetcode
 
-import structrue "github.com/leonasdev/leetcode/structure"
+import (
+	"github.com/leonasdev/leetcode/structure"
+)
 
-type ListNode = structrue.ListNode
+type ListNode = structure.ListNode
 
 func reverseList(head *ListNode) *ListNode {
 	cur := head

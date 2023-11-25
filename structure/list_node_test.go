@@ -1,4 +1,4 @@
-package structrue
+package structure
 
 import (
 	"testing"

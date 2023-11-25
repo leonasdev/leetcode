@@ -1,4 +1,4 @@
-package structrue
+package structure
 
 type ListNode struct {
 	Val  int

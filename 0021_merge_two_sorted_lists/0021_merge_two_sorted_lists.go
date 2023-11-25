@@ -1,8 +1,8 @@
 package leetcode
 
-import structrue "github.com/leonasdev/leetcode/structure"
+import "github.com/leonasdev/leetcode/structure"
 
-type ListNode = structrue.ListNode
+type ListNode = structure.ListNode
 
 func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	if list1 == nil {
