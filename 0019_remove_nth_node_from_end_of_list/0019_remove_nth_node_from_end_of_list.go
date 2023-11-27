@@ -7,19 +7,18 @@ import (
 type ListNode = structure.ListNode
 
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
-	dummyNode := &ListNode{Next: head}
-	l, r := dummyNode, head
-
-	for i := 0; i < n; i++ {
-		r = r.Next
+	dummy := &ListNode{Next: head}
+	slow, fast := dummy, head
+	for ; n > 0; n-- {
+		fast = fast.Next
 	}
 
-	for r != nil {
-		r = r.Next
-		l = l.Next
+	for fast != nil {
+		fast = fast.Next
+		slow = slow.Next
 	}
 
-	l.Next = l.Next.Next
+	slow.Next = slow.Next.Next
 
-	return dummyNode.Next
+	return dummy.Next
 }
