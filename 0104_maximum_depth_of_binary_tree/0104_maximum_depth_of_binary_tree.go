@@ -1,10 +1,8 @@
 package leetcode
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+import "github.com/leonasdev/leetcode/structure"
+
+type TreeNode = structure.TreeNode
 
 func maxDepth(root *TreeNode) int {
 	if root == nil {

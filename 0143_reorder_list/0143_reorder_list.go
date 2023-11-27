@@ -7,15 +7,15 @@ import (
 type ListNode = structure.ListNode
 
 func reverseList(head *ListNode) *ListNode {
-	var pre *ListNode
-	curr := head
-	for curr != nil {
-		tmp := curr.Next
-		curr.Next = pre
-		pre = curr
-		curr = tmp
+	var prev *ListNode
+	for head != nil {
+		tmp := head.Next
+		head.Next = prev
+		prev = head
+		head = tmp
 	}
-	return pre
+
+	return prev
 }
 
 func reorderList(head *ListNode) {
@@ -23,25 +23,23 @@ func reorderList(head *ListNode) {
 		return
 	}
 
-	// find middle
 	slow, fast := head, head.Next
 	for fast != nil && fast.Next != nil {
 		slow = slow.Next
 		fast = fast.Next.Next
 	}
-	second := slow.Next
-	slow.Next = nil // first head's last should point to nil
 
-	reverseHead := reverseList(second)
+	tmp := slow.Next
+	slow.Next = nil
+	second := reverseList(tmp)
+	first := head
 
-	// merge two halfs
-	curr, rCurr := head, reverseHead
-	for rCurr != nil {
-		tmp := curr.Next
-		curr.Next = rCurr
-		rTmp := rCurr.Next
-		rCurr.Next = tmp
-		curr = tmp
-		rCurr = rTmp
+	for second != nil {
+		tmp = first.Next
+		first.Next = second
+		tmp2 := second.Next
+		second.Next = tmp
+		first = tmp
+		second = tmp2
 	}
 }
