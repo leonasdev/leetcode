@@ -1,14 +1,15 @@
 package leetcode
 
 func search(nums []int, target int) int {
-	for l, r := 0, len(nums); l < r; {
-		mid := l + (r-l)/2 // prevent overflow when the sum of r and l is greater than 2^32
+	lo, hi := 0, len(nums)-1
+	for lo <= hi {
+		mid := lo + (hi-lo)/2
 		if nums[mid] == target {
 			return mid
-		} else if nums[mid] > target {
-			r = mid
+		} else if nums[mid] < target {
+			lo = mid + 1
 		} else {
-			l = mid + 1
+			hi = mid - 1
 		}
 	}
 	return -1
