@@ -7,17 +7,20 @@ import (
 
 func isPalindrome(s string) bool {
 	s = strings.ToLower(s)
-	alphaSlice := []rune{}
+	runes := []rune{}
 	for _, ch := range s {
-		if unicode.IsDigit(ch) || (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') {
-			alphaSlice = append(alphaSlice, ch)
+		if unicode.IsLetter(ch) || unicode.IsDigit(ch) {
+			runes = append(runes, ch)
 		}
 	}
 
-	for i, j := 0, len(alphaSlice)-1; i < len(alphaSlice); i, j = i+1, j-1 {
-		if alphaSlice[i] != alphaSlice[j] {
+	lo, hi := 0, len(runes)-1
+	for lo <= hi {
+		if runes[lo] != runes[hi] {
 			return false
 		}
+		lo++
+		hi--
 	}
 	return true
 }
