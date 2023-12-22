@@ -1,23 +1,23 @@
 package leetcode
 
 func longestConsecutive(nums []int) int {
-	set := map[int]bool{}
-	for _, v := range nums {
-		set[v] = true
+	longest := 0
+	m := map[int]bool{}
+
+	for _, num := range nums {
+		m[num] = true
 	}
 
-	longest := 0
-	for v := range set {
-		if set[v-1] {
+	for num := range m {
+		if m[num-1] {
 			continue
 		}
-		count := 0
-		for set[v+count] {
+
+		count := 1
+		for m[num+count] {
 			count++
 		}
-		if count > longest {
-			longest = count
-		}
+		longest = max(longest, count)
 	}
 
 	return longest
