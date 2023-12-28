@@ -20,7 +20,7 @@ func carFleet(target int, position []int, speed []int) int {
 	maxTime := 0.0
 	count := 0
 	for _, car := range cars {
-		timeToTarget := (float64(target) - float64(car.Position)) / float64(car.Speed)
+		timeToTarget := float64(target-car.Position) / float64(car.Speed)
 		if timeToTarget > maxTime {
 			count++
 			maxTime = timeToTarget
